@@ -2,26 +2,31 @@
 
 /* global bootstrapDiagram, inject */
 
-var assign = require('lodash/object/assign');
+import assign from 'lodash/object/assign';
 
-var snappingModule = require('../../../lib/features/snapping'),
-    modelingModule = require('../../../lib/features/modeling'),
-    moveModule = require('../../../lib/features/move'),
-    createModule = require('../../../lib/features/create'),
-    attachSupportModule = require('../../../lib/features/attach-support');
+import snappingModule from '../../../lib/features/snapping';
+import modelingModule from '../../../lib/features/modeling';
+import moveModule from '../../../lib/features/move';
+import createModule from '../../../lib/features/create';
+import attachSupportModule from '../../../lib/features/attach-support';
 
-var canvasEvent = require('../../util/MockEvents').createCanvasEvent;
+import { createCanvasEvent as canvasEvent } from '../../util/MockEvents';
 
-var SnapContext = require('../../../lib/features/snapping/SnapContext');
+import SnapContext from '../../../lib/features/snapping/SnapContext';
 
-var Event = require('../../../lib/core/EventBus').Event;
+import { Event } from '../../../lib/core/EventBus';
 
 
 describe('features/snapping - Snapping', function() {
 
   describe('basics', function() {
 
-    beforeEach(bootstrapDiagram({ modules: [ modelingModule, snappingModule ] }));
+    beforeEach(bootstrapDiagram({
+      modules: [
+        modelingModule,
+        snappingModule
+      ]
+    }));
 
 
     var rootElement, shape;
@@ -256,7 +261,7 @@ describe('features/snapping - Snapping', function() {
       // when
       var siblings = snapping.getSiblings(shape, rootElement);
 
-      // then        
+      // then
       expect(siblings).to.have.length(2);
       expect(siblings).to.contain(sibling);
       expect(siblings).to.contain(connection);

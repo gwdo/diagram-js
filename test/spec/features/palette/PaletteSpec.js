@@ -2,10 +2,10 @@
 
 /* global bootstrapDiagram, inject, sinon */
 
-var paletteModule = require('../../../../lib/features/palette');
+import paletteModule from '../../../../lib/features/palette';
 
-var domQuery = require('min-dom/lib/query'),
-    domClasses = require('min-dom/lib/classes');
+import domQuery from 'min-dom/lib/query';
+import domClasses from 'min-dom/lib/classes';
 
 class Provider {
   constructor(entries) {

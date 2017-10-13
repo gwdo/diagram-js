@@ -2,10 +2,10 @@
 
 /* global bootstrapDiagram, inject */
 
-var forEach = require('lodash/collection/forEach');
+import forEach from 'lodash/collection/forEach';
 
 
-var touchInteractionModule = require('../../../../lib/features/touch');
+import touchInteractionModule from '../../../../lib/features/touch';
 
 
 describe('features/touch', function() {

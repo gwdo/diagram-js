@@ -1,8 +1,8 @@
 'use strict';
 
-var OrderingProvider = require('../../../../../lib/features/ordering/OrderingProvider');
+import OrderingProvider from '../../../../../lib/features/ordering/OrderingProvider';
 
-var findIndex = require('lodash/array/findIndex');
+import findIndex from 'lodash/array/findIndex';
 
 
 /**
@@ -11,7 +11,7 @@ var findIndex = require('lodash/array/findIndex');
  * (1) elements are ordered by a {level} property
  * (2) elements with {alwaysTopLevel} are always added to the root
  */
-class TestOrderingProvider extends OrderingProvider {
+export default class TestOrderingProvider extends OrderingProvider {
   constructor(eventBus) {
     super(eventBus);
   }
@@ -46,6 +46,3 @@ class TestOrderingProvider extends OrderingProvider {
   }
 
 }
-
-
-module.exports = TestOrderingProvider;

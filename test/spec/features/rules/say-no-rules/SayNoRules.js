@@ -1,8 +1,9 @@
 'use strict';
 
-var RuleProvider = require('../../../../../lib/features/rules/RuleProvider');
+import RuleProvider from '../../../../../lib/features/rules/RuleProvider';
 
-class SayNoRules extends RuleProvider {
+
+export default class SayNoRules extends RuleProvider {
 
   init() {
 
@@ -13,5 +14,3 @@ class SayNoRules extends RuleProvider {
 }
 
 SayNoRules.$inject = [ 'eventBus' ];
-
-module.exports = SayNoRules;

@@ -1,8 +1,8 @@
 'use strict';
 
-var RuleProvider = require('../../../../../lib/features/rules/RuleProvider');
+import RuleProvider from '../../../../../lib/features/rules/RuleProvider';
 
-class CreateRules extends RuleProvider {
+export default class CreateRules extends RuleProvider {
 
   init() {
     this.addRule('shape.create', function(context) {
@@ -23,5 +23,3 @@ class CreateRules extends RuleProvider {
 }
 
 CreateRules.$inject = [ 'eventBus' ];
-
-module.exports = CreateRules;

@@ -1,6 +1,6 @@
 'use strict';
 
-var Model = require('../../lib/model');
+import { create as createModel } from '../../lib/model';
 
 
 describe('matchers/BoundsMatchers', function() {
@@ -32,7 +32,7 @@ describe('matchers/BoundsMatchers', function() {
     it('should .have.bounds() with Shape', function() {
 
       // given
-      var element = Model.create('shape', { id: 'someShape', x: 100, y: 100, width: 200, height: 200 }),
+      var element = createModel('shape', { id: 'someShape', x: 100, y: 100, width: 200, height: 200 }),
           expectedBounds = { x: 100, y: 100, width: 200, height: 200 };
 
       // then
@@ -43,7 +43,7 @@ describe('matchers/BoundsMatchers', function() {
     it('should .not.have.bounds() with Shape', function() {
 
       // given
-      var element = Model.create('shape', { id: 'someShape', x: 100, y: 100, width: 200, height: 200 }),
+      var element = createModel('shape', { id: 'someShape', x: 100, y: 100, width: 200, height: 200 }),
           expectedBounds = { x: 50, y: 100, width: 200, height: 200 };
 
       // then

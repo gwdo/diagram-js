@@ -1,25 +1,26 @@
 'use strict';
 
-var canvasEvent = require('../../../util/MockEvents').createCanvasEvent;
+import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 
 /* global bootstrapDiagram, inject */
 
-var pick = require('lodash/object/pick');
+import pick from 'lodash/object/pick';
 
-var attachSupportModule = require('../../../../lib/features/attach-support'),
-    modelingModule = require('../../../../lib/features/modeling'),
-    replaceModule = require('../../../../lib/features/replace'),
-    spaceToolModule = require('../../../../lib/features/space-tool'),
-    rulesModule = require('./rules');
+import attachSupportModule from '../../../../lib/features/attach-support';
+import modelingModule from '../../../../lib/features/modeling';
+import replaceModule from '../../../../lib/features/replace';
+import spaceToolModule from '../../../../lib/features/space-tool';
+import rulesModule from './rules';
 
-var getNewAttachShapeDelta = require('../../../../lib/util/AttachUtil').getNewAttachShapeDelta,
-    isMac = require('../../../../lib/util/Mouse').isMac;
+import { getNewAttachShapeDelta } from '../../../../lib/util/AttachUtil';
+
+import { isMac } from '../../../../lib/util/Platform';
 
 var keyModifier = isMac() ? { metaKey: true } : { ctrlKey: true };
 
-var domQuery = require('min-dom/lib/query');
+import domQuery from 'min-dom/lib/query';
 
-var svgClasses = require('tiny-svg/lib/classes');
+import svgClasses from 'tiny-svg/lib/classes';
 
 
 describe('features/attach-support', function() {

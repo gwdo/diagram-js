@@ -1,17 +1,9 @@
 'use strict';
 
-var intersect = require('../../../lib/util/Intersection').intersection;
-
-function expectIntersection(intersection, expected) {
-  return Math.abs(intersection.x - expected.x) < 1
-    && Math.abs(intersection.y - expected.y) < 1
-    && intersection.segment1 === expected.segment1
-    && intersection.segment2 === expected.segment2;
-}
+import { intersection as intersect } from '../../../lib/util/Intersection';
 
 
 describe('Intersection', function() {
-
 
   it('should intersect line with rounded rectangle (edge)', function() {
 
@@ -82,3 +74,14 @@ describe('Intersection', function() {
   });
 
 });
+
+
+/////////// helpers //////////////////////////////
+
+function expectIntersection(intersection, expected) {
+  return Math.abs(intersection.x - expected.x) < 1
+    && Math.abs(intersection.y - expected.y) < 1
+    && intersection.segment1 === expected.segment1
+    && intersection.segment2 === expected.segment2;
+}
+

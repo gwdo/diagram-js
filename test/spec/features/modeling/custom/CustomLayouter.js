@@ -1,6 +1,6 @@
 'use strict';
 
-var getMid = require('../../../../../lib/layout/LayoutUtil').getMid;
+import { getMid } from '../../../../../lib/layout/LayoutUtil';
 
 
 /**
@@ -8,7 +8,7 @@ var getMid = require('../../../../../lib/layout/LayoutUtil').getMid;
  * that layouts the connection by directly connecting
  * mid(source) + mid(target).
  */
-class CustomLayouter {
+export default class CustomLayouter {
 
   /**
    * Return the new layouted waypoints for the given connection.
@@ -45,5 +45,3 @@ class CustomLayouter {
     ];
   }
 }
-
-module.exports = CustomLayouter;

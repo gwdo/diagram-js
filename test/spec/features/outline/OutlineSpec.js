@@ -2,11 +2,11 @@
 
 /* global bootstrapDiagram, inject */
 
-var selectionModule = require('../../../../lib/features/selection');
+import selectionModule from '../../../../lib/features/selection';
 
-var domQuery = require('min-dom/lib/query');
+import domQuery from 'min-dom/lib/query';
 
-var svgClasses = require('tiny-svg/lib/classes');
+import svgClasses from 'tiny-svg/lib/classes';
 
 
 describe('features/outline/Outline', function() {

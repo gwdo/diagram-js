@@ -1,11 +1,11 @@
 'use strict';
 
-var forEach = require('lodash/collection/forEach');
+import forEach from 'lodash/collection/forEach';
 
 /* global bootstrapDiagram, inject */
 
-var distributeElementsModule = require('../../../../lib/features/distribute-elements'),
-    modelingModule = require('../../../../lib/features/modeling');
+import distributeElementsModule from '../../../../lib/features/distribute-elements';
+import modelingModule from '../../../../lib/features/modeling';
 
 
 function expectRanges(rangeGroups, expectedRanges) {

@@ -2,7 +2,7 @@
 
 /* global bootstrapDiagram, inject */
 
-var customModelingModule = require('./custom');
+import customModelingModule from './custom';
 
 
 describe('features/modeling - layout connection', function() {

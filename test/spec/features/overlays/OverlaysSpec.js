@@ -2,12 +2,12 @@
 
 /* global bootstrapDiagram, inject */
 
-var forEach = require('lodash/collection/forEach'),
-    assign = require('lodash/object/assign'),
-    every = require('lodash/collection/every'),
-    domify = require('min-dom/lib/domify');
+import forEach from 'lodash/collection/forEach';
+import assign from 'lodash/object/assign';
+import every from 'lodash/collection/every';
+import domify from 'min-dom/lib/domify';
 
-var overlayModule = require('../../../../lib/features/overlays');
+import overlayModule from '../../../../lib/features/overlays';
 
 
 describe('features/overlays', function() {

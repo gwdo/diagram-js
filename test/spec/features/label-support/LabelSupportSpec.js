@@ -1,16 +1,15 @@
 'use strict';
 
-var canvasEvent = require('../../../util/MockEvents').createCanvasEvent;
-
 /* global bootstrapDiagram, inject */
 
+import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 
-var labelSupportModule = require('../../../../lib/features/label-support'),
-    modelingModule = require('../../../../lib/features/modeling'),
-    rulesModule = require('./rules'),
-    spaceToolModule = require('../../../../lib/features/space-tool');
+import labelSupportModule from '../../../../lib/features/label-support';
+import modelingModule from '../../../../lib/features/modeling';
+import rulesModule from './rules';
+import spaceToolModule from '../../../../lib/features/space-tool';
 
-var svgClasses = require('tiny-svg/lib/classes');
+import svgClasses from 'tiny-svg/lib/classes';
 
 describe('features/label-support - Label', function() {
 

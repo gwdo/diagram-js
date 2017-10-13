@@ -1,18 +1,22 @@
 'use strict';
 
-var canvasEvent = require('../../../util/MockEvents').createCanvasEvent;
+import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 
 /* global bootstrapDiagram, inject */
 
-var spaceTool = require('../../../../lib/features/space-tool'),
-    modelingModule = require('../../../../lib/features/modeling'),
-    autoResizeModule = require('../../../../lib/features/auto-resize'),
-    isMac = require('../../../../lib/util/Mouse').isMac,
-    rulesModule = require('./rules');
+import spaceTool from '../../../../lib/features/space-tool';
+import modelingModule from '../../../../lib/features/modeling';
+import autoResizeModule from '../../../../lib/features/auto-resize';
+
+import autoResizeProviderModule from './auto-resize';
+
+import { isMac } from '../../../../lib/util/Platform';
+
+import rulesModule from './rules';
 
 var keyModifier = isMac() ? { metaKey: true } : { ctrlKey: true };
 
-var domQuery = require('min-dom/lib/query');
+import domQuery from 'min-dom/lib/query';
 
 
 describe('features/space-tool', function() {
@@ -698,7 +702,7 @@ describe('features/space-tool', function() {
         spaceTool,
         modelingModule,
         autoResizeModule,
-        require('./auto-resize')
+        autoResizeProviderModule
       ]
     }));
 

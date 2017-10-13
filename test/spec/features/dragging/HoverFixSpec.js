@@ -1,13 +1,12 @@
 'use strict';
 
-require('../../../TestHelper');
-
+import '../../../TestHelper';
 
 /* global bootstrapDiagram, inject */
 
-var canvasEvent = require('../../../util/MockEvents').createCanvasEvent;
+import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 
-var dragModule = require('../../../../lib/features/dragging');
+import dragModule from '../../../../lib/features/dragging';
 
 
 describe('features/dragging - HoverFix', function() {

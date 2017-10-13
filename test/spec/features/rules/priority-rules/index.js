@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   __init__: [ 'priorityRules' ],
   priorityRules: [ 'type', require('./PriorityRules') ]
 };

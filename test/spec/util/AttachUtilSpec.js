@@ -1,6 +1,8 @@
 'use strict';
 
-var AttachUtil = require('../../../lib/util/AttachUtil');
+import {
+  getNewAttachPoint
+} from '../../../lib/util/AttachUtil';
 
 
 describe('AttachUtil', function() {
@@ -29,7 +31,7 @@ describe('AttachUtil', function() {
       };
 
       // then
-      expect(AttachUtil.getNewAttachPoint(point, oldBounds, newBounds)).to.eql({ x: -2, y: 6 });
+      expect(getNewAttachPoint(point, oldBounds, newBounds)).to.eql({ x: -2, y: 6 });
     });
 
     it('should return new point\'s position delta for shrinking', function() {
@@ -54,7 +56,7 @@ describe('AttachUtil', function() {
       };
 
       // then
-      expect(AttachUtil.getNewAttachPoint(point, oldBounds, newBounds)).to.eql({ x: -4, y: 0 });
+      expect(getNewAttachPoint(point, oldBounds, newBounds)).to.eql({ x: -4, y: 0 });
     });
 
     it('should return new point\'s position delta', function() {
@@ -79,7 +81,7 @@ describe('AttachUtil', function() {
       };
 
       // then
-      expect(AttachUtil.getNewAttachPoint(point, oldBounds, newBounds)).to.eql({ x: 26, y: 10 });
+      expect(getNewAttachPoint(point, oldBounds, newBounds)).to.eql({ x: 26, y: 10 });
     });
 
   });

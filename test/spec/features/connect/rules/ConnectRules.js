@@ -1,8 +1,8 @@
 'use strict';
 
-var RuleProvider = require('../../../../../lib/features/rules/RuleProvider');
+import RuleProvider from '../../../../../lib/features/rules/RuleProvider';
 
-class ConnectRules extends RuleProvider {
+export default class ConnectRules extends RuleProvider {
 
   init() {
 
@@ -20,5 +20,3 @@ class ConnectRules extends RuleProvider {
 }
 
 ConnectRules.$inject = ['eventBus'];
-
-module.exports = ConnectRules;

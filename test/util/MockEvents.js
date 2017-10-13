@@ -1,10 +1,10 @@
 'use strict';
 
-var assign = require('lodash/object/assign');
+import assign from 'lodash/object/assign';
 
-var EventBus = require('../../lib/core/EventBus');
+import { Event as InternalEvent } from '../../lib/core/EventBus';
 
-var TestHelper = require('../helper');
+import { getDiagramJS } from '../helper';
 
 
 /**
@@ -17,9 +17,9 @@ var TestHelper = require('../helper');
  *
  * @return {Event} event, scoped to the given canvas
  */
-function createCanvasEvent(position, data) {
+export function createCanvasEvent(position, data) {
 
-  return TestHelper.getDiagramJS().invoke(function(canvas) {
+  return getDiagramJS().invoke(function(canvas) {
 
     var target = canvas._svg;
 
@@ -34,10 +34,8 @@ function createCanvasEvent(position, data) {
   });
 }
 
-module.exports.createCanvasEvent = createCanvasEvent;
 
-
-function createEvent(target, position, data) {
+export function createEvent(target, position, data) {
 
   // unwrap snapsvg gfx
   target = target.node || target;
@@ -50,11 +48,9 @@ function createEvent(target, position, data) {
     offsetY: position.y
   }, data || {});
 
-  var event = new EventBus.Event();
+  var event = new InternalEvent();
 
   event.init(data);
 
   return event;
 }
-
-module.exports.createEvent = createEvent;

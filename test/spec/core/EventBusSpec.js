@@ -1,8 +1,9 @@
 'use strict';
 
-var EventBus = require('../../../lib/core/EventBus');
-
-var EventBusEvent = EventBus.Event;
+import {
+  default as EventBus,
+  Event as EventBusEvent
+} from '../../../lib/core/EventBus';
 
 /* global sinon */
 

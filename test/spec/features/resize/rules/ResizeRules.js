@@ -1,8 +1,9 @@
 'use strict';
 
-var RuleProvider = require('../../../../../lib/features/rules/RuleProvider');
+import RuleProvider from '../../../../../lib/features/rules/RuleProvider';
 
-class ResizeRules extends RuleProvider {
+
+export default class ResizeRules extends RuleProvider {
 
   init() {
 
@@ -27,5 +28,3 @@ class ResizeRules extends RuleProvider {
 }
 
 ResizeRules.$inject = [ 'eventBus' ];
-
-module.exports = ResizeRules;

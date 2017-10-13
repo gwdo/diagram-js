@@ -1,11 +1,9 @@
 'use strict';
 
-var LayoutUtil = require('../../../lib/layout/LayoutUtil');
-
-
-function rect(x, y, width, height) {
-  return { x: x, y: y, width: width, height: height };
-}
+import {
+  getMid,
+  getOrientation
+} from '../../../lib/layout/LayoutUtil';
 
 
 describe('layout/LayoutUtil', function() {
@@ -17,7 +15,7 @@ describe('layout/LayoutUtil', function() {
       var r = rect(100, 100, 100, 200);
 
       // then
-      expect(LayoutUtil.getMid(r)).to.eql({ x: 150, y: 200 });
+      expect(getMid(r)).to.eql({ x: 150, y: 200 });
     });
 
 
@@ -26,7 +24,7 @@ describe('layout/LayoutUtil', function() {
       var point = { x: 100, y: 100 };
 
       // then
-      expect(LayoutUtil.getMid(point)).to.eql(point);
+      expect(getMid(point)).to.eql(point);
     });
 
   });
@@ -42,7 +40,7 @@ describe('layout/LayoutUtil', function() {
       // given
       var b = rect(100, 0, 100, 100);
 
-      expect(LayoutUtil.getOrientation(b, a)).to.equal('top');
+      expect(getOrientation(b, a)).to.equal('top');
     });
 
 
@@ -51,7 +49,7 @@ describe('layout/LayoutUtil', function() {
       // given
       var b = rect(200, 0, 100, 100);
 
-      expect(LayoutUtil.getOrientation(b, a)).to.equal('top-right');
+      expect(getOrientation(b, a)).to.equal('top-right');
     });
 
 
@@ -60,7 +58,7 @@ describe('layout/LayoutUtil', function() {
       // given
       var b = rect(200, 100, 100, 100);
 
-      expect(LayoutUtil.getOrientation(b, a)).to.equal('right');
+      expect(getOrientation(b, a)).to.equal('right');
     });
 
 
@@ -69,7 +67,7 @@ describe('layout/LayoutUtil', function() {
       // given
       var b = rect(200, 200, 100, 100);
 
-      expect(LayoutUtil.getOrientation(b, a)).to.equal('bottom-right');
+      expect(getOrientation(b, a)).to.equal('bottom-right');
     });
 
 
@@ -78,7 +76,7 @@ describe('layout/LayoutUtil', function() {
       // given
       var b = rect(100, 200, 100, 100);
 
-      expect(LayoutUtil.getOrientation(b, a)).to.equal('bottom');
+      expect(getOrientation(b, a)).to.equal('bottom');
     });
 
 
@@ -87,7 +85,7 @@ describe('layout/LayoutUtil', function() {
       // given
       var b = rect(0, 200, 100, 100);
 
-      expect(LayoutUtil.getOrientation(b, a)).to.equal('bottom-left');
+      expect(getOrientation(b, a)).to.equal('bottom-left');
     });
 
 
@@ -96,7 +94,7 @@ describe('layout/LayoutUtil', function() {
       // given
       var b = rect(0, 100, 100, 100);
 
-      expect(LayoutUtil.getOrientation(b, a)).to.equal('left');
+      expect(getOrientation(b, a)).to.equal('left');
     });
 
 
@@ -105,7 +103,7 @@ describe('layout/LayoutUtil', function() {
       // given
       var b = rect(0, 0, 100, 100);
 
-      expect(LayoutUtil.getOrientation(b, a)).to.equal('top-left');
+      expect(getOrientation(b, a)).to.equal('top-left');
     });
 
 
@@ -114,9 +112,15 @@ describe('layout/LayoutUtil', function() {
       // given
       var b = rect(120, 120, 100, 100);
 
-      expect(LayoutUtil.getOrientation(b, a)).to.equal('intersect');
+      expect(getOrientation(b, a)).to.equal('intersect');
     });
 
   });
 
 });
+
+
+
+function rect(x, y, width, height) {
+  return { x: x, y: y, width: width, height: height };
+}

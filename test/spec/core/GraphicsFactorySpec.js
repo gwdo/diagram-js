@@ -2,7 +2,7 @@
 
 /* global bootstrapDiagram, inject */
 
-var merge = require('lodash/object/merge');
+import merge from 'lodash/object/merge';
 
 describe('GraphicsFactory', function() {
 

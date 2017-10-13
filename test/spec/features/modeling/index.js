@@ -1,7 +1,12 @@
-module.exports = {
+import CoreModule from '../../../../lib/core';
+import CommandModule from '../../../../lib/cmd';
+
+import Modeling from '../../../../lib/features/modeling/Modeling';
+
+export default {
   __depends__: [
-    require('../../../../lib/core'),
-    require('../../../../lib/cmd')
+    CoreModule,
+    CommandModule
   ],
-  modeling: [ 'type', require('../../../../lib/features/modeling/Modeling') ]
+  modeling: [ 'type', Modeling ]
 };

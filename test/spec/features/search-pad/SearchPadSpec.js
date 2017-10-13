@@ -2,11 +2,11 @@
 
 /* global bootstrapDiagram, inject, sinon */
 
-var searchPadModule = require('../../../../lib/features/search-pad');
-var SearchPad = require('../../../../lib/features/search-pad/SearchPad');
+import searchPadModule from '../../../../lib/features/search-pad';
+import SearchPad from '../../../../lib/features/search-pad/SearchPad';
 
-var domQuery = require('min-dom/lib/query'),
-    domClasses = require('min-dom/lib/classes');
+import domQuery from 'min-dom/lib/query';
+import domClasses from 'min-dom/lib/classes';
 
 var EVENTS = {
   closed: 'searchPad.closed',
@@ -412,7 +412,7 @@ function triggerKeyEvent(element, event, code) {
   e.keyCode = code;
   e.which = code;
   element.dispatchEvent(e);
-  
+
   return e;
 }
 

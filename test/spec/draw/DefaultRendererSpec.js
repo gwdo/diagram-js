@@ -1,11 +1,11 @@
 'use strict';
 
-require('../../TestHelper');
+import '../../TestHelper';
 
 /* global bootstrapDiagram, inject */
 
 
-var drawModule = require('../../../lib/draw');
+import drawModule from '../../../lib/draw';
 
 
 describe('draw - DefaultRenderer', function() {

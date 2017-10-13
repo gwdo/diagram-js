@@ -1,6 +1,6 @@
 'use strict';
 
-var pick = require('lodash/object/pick');
+import pick from 'lodash/object/pick';
 
 var BOUNDS_ATTRS = [ 'x', 'y', 'width', 'height' ],
     POSITION_ATTRS = [ 'x', 'y' ],
@@ -37,7 +37,7 @@ function getPosition(s) {
 }
 
 
-module.exports = function(chai, utils) {
+export default function(chai, utils) {
 
   var Assertion = chai.Assertion;
 

@@ -1,9 +1,10 @@
 'use strict';
 
-var fs = require('fs');
+import fs from 'fs';
 
 
-class ContextPadProvider {
+export default class ContextPadProvider {
+
   constructor(contextPad) {
     contextPad.registerProvider(this);
   }
@@ -56,5 +57,3 @@ class ContextPadProvider {
 }
 
 ContextPadProvider.$inject = [ 'contextPad' ];
-
-module.exports = ContextPadProvider;

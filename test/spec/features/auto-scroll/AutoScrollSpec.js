@@ -1,14 +1,14 @@
 'use strict';
 
-require('../../../TestHelper');
+import '../../../TestHelper';
 
-var canvasEvent = require('../../../util/MockEvents').createCanvasEvent;
+import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 
 /* global bootstrapDiagram, inject, sinon */
 
 
-var dragModule = require('../../../../lib/features/dragging');
-var scrollModule = require('../../../../lib/features/auto-scroll');
+import dragModule from '../../../../lib/features/dragging';
+import scrollModule from '../../../../lib/features/auto-scroll';
 
 
 describe('features/auto-scroll - AutoScroll', function() {

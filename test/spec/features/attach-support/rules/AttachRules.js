@@ -1,14 +1,11 @@
 'use strict';
 
-var RuleProvider = require('../../../../../lib/features/rules/RuleProvider');
+import RuleProvider from '../../../../../lib/features/rules/RuleProvider';
 
-var forEach = require('lodash/collection/forEach');
+import forEach from 'lodash/collection/forEach';
 
-class MoveRules extends RuleProvider {
 
-  constructor(eventBus) {
-    super(eventBus);
-  }
+export default class MoveRules extends RuleProvider {
 
   init() {
 
@@ -65,8 +62,6 @@ class MoveRules extends RuleProvider {
 }
 
 MoveRules.$inject = [ 'eventBus' ];
-
-module.exports = MoveRules;
 
 
 /**

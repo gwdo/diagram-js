@@ -1,10 +1,10 @@
 'use strict';
 
-require('../../TestHelper');
+import '../../TestHelper';
 /* global bootstrapDiagram, inject, sinon */
 
 
-var cmdModule = require('../../../lib/command');
+import cmdModule from '../../../lib/command';
 
 // example commands
 

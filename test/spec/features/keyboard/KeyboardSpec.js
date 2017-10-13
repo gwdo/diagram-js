@@ -1,17 +1,17 @@
 'use strict';
 
-var TestHelper = require('../../../TestHelper');
+import { DomMocking } from '../../../TestHelper';
 
-var TestContainer = require('mocha-test-container-support');
+import TestContainer from 'mocha-test-container-support';
 
 /* global bootstrapDiagram, inject */
 
 
-var modelingModule = require('../../../../lib/features/modeling'),
-    editorActionsModule = require('../../../../lib/features/editor-actions'),
-    keyboardModule = require('../../../../lib/features/keyboard');
+import modelingModule from '../../../../lib/features/modeling';
+import editorActionsModule from '../../../../lib/features/editor-actions';
+import keyboardModule from '../../../../lib/features/keyboard';
 
-var createKeyEvent = require('../../../util/KeyEvents').createKeyEvent;
+import { createKeyEvent } from '../../../util/KeyEvents'
 
 
 describe('features/keyboard', function() {
@@ -35,7 +35,7 @@ describe('features/keyboard', function() {
   describe('listener handling', function() {
 
     beforeEach(function() {
-      TestHelper.DomMocking.install();
+      DomMocking.install();
     });
 
     var testDiv;
@@ -84,7 +84,7 @@ describe('features/keyboard', function() {
 
 
     afterEach(function() {
-      TestHelper.DomMocking.uninstall();
+      DomMocking.uninstall();
     });
 
   });

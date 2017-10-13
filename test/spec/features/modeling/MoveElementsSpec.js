@@ -3,9 +3,9 @@
 /* global bootstrapDiagram, inject */
 
 
-var pick = require('lodash/object/pick');
+import pick from 'lodash/object/pick';
 
-var modelingModule = require('../../../../lib/features/modeling');
+import modelingModule from '../../../../lib/features/modeling';
 
 function containment(element) {
   return pick(element, [ 'x', 'y', 'parent' ]);

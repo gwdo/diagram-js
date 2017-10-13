@@ -2,14 +2,16 @@
 
 /* global bootstrapDiagram, inject */
 
-var TestHelper = require('../../TestHelper');
+import { getDiagramJS } from '../../TestHelper';
 
-var svgAppend = require('tiny-svg/lib/append'),
-    svgAttr = require('tiny-svg/lib/attr'),
-    svgCreate = require('tiny-svg/lib/create');
+import svgAppend from 'tiny-svg/lib/append';
+import svgAttr from 'tiny-svg/lib/attr';
+import svgCreate from 'tiny-svg/lib/create';
+
+import CroppingConnectionDocking from '../../../lib/layout/CroppingConnectionDocking';
 
 var layoutModule = {
-  connectionDocking: [ 'type', require('../../../lib/layout/CroppingConnectionDocking') ]
+  connectionDocking: [ 'type', CroppingConnectionDocking ]
 };
 
 
@@ -51,7 +53,7 @@ function visualizeActual(canvas, point) {
 }
 
 function expectDockingPoint(connection, shape, expected) {
-  return TestHelper.getDiagramJS().invoke(function(canvas, connectionDocking) {
+  return getDiagramJS().invoke(function(canvas, connectionDocking) {
 
     var cropStart = shape === connection.source;
     var dockingPoint = connectionDocking.getDockingPoint(connection, shape, cropStart);
@@ -65,7 +67,7 @@ function expectDockingPoint(connection, shape, expected) {
 
 function expectCropping(connection, expectedWaypoints) {
 
-  return TestHelper.getDiagramJS().invoke(function(canvas, connectionDocking) {
+  return getDiagramJS().invoke(function(canvas, connectionDocking) {
     var croppedWaypoints = connectionDocking.getCroppedWaypoints(connection);
 
     expectedWaypoints.forEach(function(p) {

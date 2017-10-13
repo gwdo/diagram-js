@@ -1,17 +1,11 @@
 'use strict';
 
-var AutoResizeProvider = require('../../../../../lib/features/auto-resize/AutoResizeProvider');
+import AutoResizeProvider from '../../../../../lib/features/auto-resize/AutoResizeProvider';
 
 
-class CustomAutoResizeProvider extends AutoResizeProvider {
-
-  constructor(eventBus) {
-    super(eventBus);
-  }
+export default class CustomAutoResizeProvider extends AutoResizeProvider {
 
   canResize(elements, target) {
     return target.parent;
   }
 }
-
-module.exports = CustomAutoResizeProvider;

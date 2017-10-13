@@ -1,8 +1,8 @@
 'use strict';
 
-var RuleProvider = require('../../../../../lib/features/rules/RuleProvider');
+import RuleProvider from '../../../../../lib/features/rules/RuleProvider';
 
-class MoveRules extends RuleProvider {
+export default class MoveRules extends RuleProvider {
 
   init() {
 
@@ -25,5 +25,3 @@ class MoveRules extends RuleProvider {
 }
 
 MoveRules.$inject = [ 'eventBus' ];
-
-module.exports = MoveRules;

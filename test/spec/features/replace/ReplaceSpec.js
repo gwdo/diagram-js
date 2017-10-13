@@ -2,10 +2,10 @@
 
 /* global bootstrapDiagram, inject */
 
-var modelingModule = require('../../../../lib/features/modeling'),
-    replaceModule = require('../../../../lib/features/replace');
+import modelingModule from '../../../../lib/features/modeling';
+import replaceModule from '../../../../lib/features/replace';
 
-var domQuery = require('min-dom/lib/query');
+import domQuery from 'min-dom/lib/query';
 
 
 describe('features/Replace', function() {

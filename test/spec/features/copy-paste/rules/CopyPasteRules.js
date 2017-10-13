@@ -1,9 +1,9 @@
 'use strict';
 
-var RuleProvider = require('../../../../../lib/features/rules/RuleProvider');
+import RuleProvider from '../../../../../lib/features/rules/RuleProvider';
 
 
-class CopyPasteRules extends RuleProvider {
+export default class CopyPasteRules extends RuleProvider {
 
   init() {
 
@@ -36,5 +36,3 @@ class CopyPasteRules extends RuleProvider {
 }
 
 CopyPasteRules.$inject = [ 'eventBus' ];
-
-module.exports = CopyPasteRules;

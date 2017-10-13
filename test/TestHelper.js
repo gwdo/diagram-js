@@ -1,24 +1,22 @@
 'use strict';
 
-// make sinon fake timers work with lodash #debounce, #now
-// and friends by overriding the native Date#now.
-//
-// it would otherwise be cached by lodash in `lodash/date/now`
-Date.now = function() {
-  return new Date().getTime();
-};
+import { insertCSS } from './helper';
 
-var TestHelper = module.exports = require('./helper');
+import BoundsMatchers from './matchers/BoundsMatchers';
+import ConnectionMatchers from './matchers/ConnectionMatchers';
 
-var fs = require('fs');
+export * from './helper';
 
-TestHelper.insertCSS('diagram-js.css', fs.readFileSync(__dirname + '/../assets/diagram-js.css', 'utf8'));
 
-TestHelper.insertCSS('diagram-js-testing.css',
+import fs from 'fs';
+
+insertCSS('diagram-js.css', fs.readFileSync(__dirname + '/../assets/diagram-js.css', 'utf8'));
+
+insertCSS('diagram-js-testing.css',
   '.test-container .result { height: 500px; }' + '.test-container > div'
 );
 
 
 // add suite specific matchers
-global.chai.use(require('./matchers/BoundsMatchers'));
-global.chai.use(require('./matchers/ConnectionMatchers'));
+global.chai.use(BoundsMatchers);
+global.chai.use(ConnectionMatchers);

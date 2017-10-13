@@ -1,18 +1,17 @@
 'use strict';
 
-require('../../../TestHelper');
-
-var canvasEvent = require('../../../util/MockEvents').createCanvasEvent;
+import '../../../TestHelper';
 
 /* global bootstrapDiagram, inject */
 
+import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 
-var assign = require('lodash/object/assign'),
-    omit = require('lodash/object/omit');
+import assign from 'lodash/object/assign';
+import omit from 'lodash/object/omit';
 
-var dragModule = require('../../../../lib/features/dragging');
+import dragModule from '../../../../lib/features/dragging';
 
-var svgClasses = require('tiny-svg/lib/classes');
+import svgClasses from 'tiny-svg/lib/classes';
 
 
 describe('features/dragging - Dragging', function() {

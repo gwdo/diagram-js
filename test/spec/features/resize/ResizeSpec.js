@@ -1,22 +1,21 @@
 'use strict';
 
-var TestHelper = require('../../../TestHelper');
+import { inject } from '../../../TestHelper';
 
+/* global bootstrapDiagram */
 
-/* global bootstrapDiagram, inject */
+import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 
-var canvasEvent = require('../../../util/MockEvents').createCanvasEvent;
+import pick from 'lodash/object/pick';
 
-var pick = require('lodash/object/pick');
+import resizeModule from '../../../../lib/features/resize';
+import modelingModule from '../../../../lib/features/modeling';
+import rulesModule from './rules';
+import selectModule from '../../../../lib/features/selection';
 
-var resizeModule = require('../../../../lib/features/resize'),
-    modelingModule = require('../../../../lib/features/modeling'),
-    rulesModule = require('./rules'),
-    selectModule = require('../../../../lib/features/selection');
+import domQuery from 'min-dom/lib/query';
 
-var domQuery = require('min-dom/lib/query');
-
-var svgClasses = require('tiny-svg/lib/classes');
+import svgClasses from 'tiny-svg/lib/classes';
 
 function bounds(b) {
   return pick(b, [ 'x', 'y', 'width', 'height' ]);
@@ -57,7 +56,7 @@ describe('features/resize - Resize', function() {
   describe('handles', function() {
 
     function getResizeHandles() {
-      return TestHelper.inject(function(resizeHandles) {
+      return inject(function(resizeHandles) {
         return domQuery.all('.djs-resizer', resizeHandles._getResizersParent());
       })();
     }

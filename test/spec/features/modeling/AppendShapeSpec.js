@@ -1,13 +1,13 @@
 'use strict';
 
-require('../../../TestHelper');
+import '../../../TestHelper';
 
 /* global bootstrapDiagram, inject */
 
 
-var find = require('lodash/collection/find');
+import find from 'lodash/collection/find';
 
-var modelingModule = require('../../../../lib/features/modeling');
+import modelingModule from '../../../../lib/features/modeling';
 
 
 describe('features/modeling - append shape', function() {

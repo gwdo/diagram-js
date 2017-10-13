@@ -2,22 +2,24 @@
 
 /* global bootstrapDiagram, inject */
 
-var pick = require('lodash/object/pick');
+import pick from 'lodash/object/pick';
 
-var resizeBounds = require('../../../../lib/features/resize/ResizeUtil').resizeBounds,
-    canvasEvent = require('../../../util/MockEvents').createCanvasEvent,
-    Elements = require('../../../../lib/util/Elements');
+import { resizeBounds } from '../../../../lib/features/resize/ResizeUtil';
+import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 
+import { getBBox } from '../../../../lib/util/Elements';
 
-var modelingModule = require('../../../../lib/features/modeling'),
-    resizeModule = require('../../../../lib/features/resize'),
-    attachModule = require('../../../../lib/features/attach-support');
+import modelingModule from '../../../../lib/features/modeling';
+import resizeModule from '../../../../lib/features/resize';
+import attachModule from '../../../../lib/features/attach-support';
+
+import CroppingConnectionDocking from '../../../../lib/layout/CroppingConnectionDocking';
 
 var layoutModule = {
-  connectionDocking: [ 'type', require('../../../../lib/layout/CroppingConnectionDocking') ]
+  connectionDocking: [ 'type', CroppingConnectionDocking ]
 };
 
-var getNewAttachPoint = require('../../../../lib/util/AttachUtil').getNewAttachPoint;
+import { getNewAttachPoint } from '../../../../lib/util/AttachUtil';
 
 function bounds(b) {
   return pick(b, [ 'x', 'y', 'width', 'height' ]);
@@ -208,13 +210,13 @@ describe('features/modeling - resize shape', function() {
           context.childrenBoxPadding = padding;
         });
 
-        var getBBox = Elements.getBBox([shape1, shape2]);
+        var bbox = getBBox([shape1, shape2]);
 
         resize.activate(canvasEvent({ x: 300, y: 300 }), parentShape, 'se');
         dragging.move(canvasEvent({ x: -100, y: -100 }));
         dragging.end();
 
-        var childrenBoxPadding = parentShape.width - (getBBox.x + getBBox.width);
+        var childrenBoxPadding = parentShape.width - (bbox.x + bbox.width);
 
         expect(childrenBoxPadding).to.equal(padding);
       })

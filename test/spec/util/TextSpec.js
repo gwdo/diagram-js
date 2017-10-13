@@ -1,12 +1,12 @@
 'use strict';
 
-var assign = require('lodash/object/assign');
+import assign from 'lodash/object/assign';
 
-var pick = require('lodash/object/pick');
+import pick from 'lodash/object/pick';
 
-var svgAppend = require('tiny-svg/lib/append'),
-    svgAttr = require('tiny-svg/lib/attr'),
-    svgCreate = require('tiny-svg/lib/create');
+import svgAppend from 'tiny-svg/lib/append';
+import svgAttr from 'tiny-svg/lib/attr';
+import svgCreate from 'tiny-svg/lib/create';
 
 
 function toFitBBox(actual, expected) {
@@ -38,9 +38,9 @@ function toFitBBox(actual, expected) {
   return !!pass;
 }
 
-var TextUtil = require('../../../lib/util/Text');
+import TextUtil from '../../../lib/util/Text';
 
-var TestContainer = require('mocha-test-container-support');
+import TestContainer from 'mocha-test-container-support';
 
 
 describe('Text', function() {

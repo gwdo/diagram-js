@@ -1,11 +1,11 @@
 'use strict';
 
-require('../../../TestHelper');
+import '../../../TestHelper';
 
 /* global bootstrapDiagram, inject, sinon */
 
 
-var zoomScrollModule = require('../../../../lib/navigation/zoomscroll');
+import zoomScrollModule from '../../../../lib/navigation/zoomscroll';
 
 
 describe('navigation/zoomscroll', function() {

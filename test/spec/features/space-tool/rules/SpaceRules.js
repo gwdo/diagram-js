@@ -1,12 +1,8 @@
 'use strict';
 
-var RuleProvider = require('../../../../../lib/features/rules/RuleProvider');
+import RuleProvider from '../../../../../lib/features/rules/RuleProvider';
 
-class SpaceRules extends RuleProvider {
-
-  constructor(eventBus) {
-    super(eventBus);
-  }
+export default class SpaceRules extends RuleProvider {
 
   init() {
     this.addRule('shape.resize', function(context) {
@@ -17,5 +13,3 @@ class SpaceRules extends RuleProvider {
 }
 
 SpaceRules.$inject = [ 'eventBus' ];
-
-module.exports = SpaceRules;

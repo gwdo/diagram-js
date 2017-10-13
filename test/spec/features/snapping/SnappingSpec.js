@@ -3,9 +3,9 @@
 /* global bootstrapDiagram, inject */
 
 
-var modelingModule = require('../../../../lib/features/modeling'),
-    snappingModule = require('../../../../lib/features/snapping'),
-    moveModule = require('../../../../lib/features/move');
+import modelingModule from '../../../../lib/features/modeling';
+import snappingModule from '../../../../lib/features/snapping';
+import moveModule from '../../../../lib/features/move';
 
 
 describe('features/snapping', function() {

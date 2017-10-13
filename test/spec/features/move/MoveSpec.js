@@ -1,14 +1,14 @@
 'use strict';
 
-var canvasEvent = require('../../../util/MockEvents').createCanvasEvent;
-
 /* global bootstrapDiagram, inject */
 
-var assign = require('lodash/object/assign'),
-    pick = require('lodash/object/pick');
+import assign from 'lodash/object/assign';
+import pick from 'lodash/object/pick';
 
-var modelingModule = require('../../../../lib/features/modeling'),
-    moveModule = require('../../../../lib/features/move');
+import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
+
+import modelingModule from '../../../../lib/features/modeling';
+import moveModule from '../../../../lib/features/move';
 
 
 describe('features/move - Move', function() {

@@ -3,9 +3,9 @@
 /* global bootstrapDiagram, inject */
 
 
-var selectionModule = require('../../../../lib/features/selection');
+import selectionModule from '../../../../lib/features/selection';
 
-var domQuery = require('min-dom/lib/query');
+import domQuery from 'min-dom/lib/query';
 
 
 describe('features/selection/SelectionVisuals', function() {

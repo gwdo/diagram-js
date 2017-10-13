@@ -1,12 +1,11 @@
 'use strict';
 
-var RuleProvider = require('../../../../../lib/features/rules/RuleProvider');
-
+import RuleProvider from '../../../../../lib/features/rules/RuleProvider';
 
 var HIGH_PRIORITY = 1500;
 
 
-class PriorityRules extends RuleProvider {
+export default class PriorityRules extends RuleProvider {
 
   init() {
 
@@ -42,5 +41,3 @@ class PriorityRules extends RuleProvider {
 }
 
 PriorityRules.$inject = [ 'eventBus' ];
-
-module.exports = PriorityRules;

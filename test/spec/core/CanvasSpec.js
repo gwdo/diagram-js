@@ -4,13 +4,13 @@ require('../../TestHelper');
 
 /* global bootstrapDiagram, inject, sinon */
 
-var merge = require('lodash/object/merge');
-var TestContainer = require('mocha-test-container-support');
+import merge from 'lodash/object/merge';
+import TestContainer from 'mocha-test-container-support';
 
-var domQuery = require('min-dom/lib/query');
+import domQuery from 'min-dom/lib/query';
 
-var svgAttr = require('tiny-svg/lib/attr'),
-    svgClasses = require('tiny-svg/lib/classes');
+import svgAttr from 'tiny-svg/lib/attr';
+import svgClasses from 'tiny-svg/lib/classes';
 
 function expectLayersOrder(layersParent, expected) {
   var layers = layersParent.childNodes;
@@ -858,6 +858,7 @@ describe('Canvas', function() {
     beforeEach(function() {
       container = TestContainer.get(this);
     });
+
     beforeEach(createDiagram({ canvas: { width: 300, height: 300 } }));
 
 

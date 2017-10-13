@@ -1,17 +1,19 @@
 'use strict';
 
-require('../../../TestHelper');
+import '../../../TestHelper';
 
 /* global bootstrapDiagram, inject, sinon */
 
 
-var modelingModule = require('../../../../lib/features/modeling'),
-    bendpointsModule = require('../../../../lib/features/bendpoints'),
-    rulesModule = require('./rules'),
-    interactionModule = require('../../../../lib/features/interaction-events'),
-    canvasEvent = require('../../../util/MockEvents').createCanvasEvent;
+import modelingModule from '../../../../lib/features/modeling';
+import bendpointsModule from '../../../../lib/features/bendpoints';
+import rulesModule from './rules';
+import interactionModule from '../../../../lib/features/interaction-events';
 
-var domQuery = require('min-dom/lib/query');
+import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
+
+import domQuery from 'min-dom/lib/query';
+
 
 describe('features/bendpoints', function() {
 
@@ -232,6 +234,7 @@ describe('features/bendpoints', function() {
 
   });
 
+
   describe('updating', function() {
 
     it('should update on element updated ID', inject(function(selection, canvas, elementRegistry) {
@@ -252,4 +255,5 @@ describe('features/bendpoints', function() {
     }));
 
   });
+
 });

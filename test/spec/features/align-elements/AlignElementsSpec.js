@@ -2,8 +2,8 @@
 
 /* global bootstrapDiagram, inject */
 
-var alignElementsModule = require('../../../../lib/features/align-elements'),
-    modelingModule = require('../../../../lib/features/modeling');
+import alignElementsModule from '../../../../lib/features/align-elements';
+import modelingModule from '../../../../lib/features/modeling';
 
 
 describe('features/align-elements', function() {
