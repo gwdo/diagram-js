@@ -41,14 +41,15 @@ describe('features/context-pad', function() {
 
 
   describe('providers', function() {
-
     beforeEach(bootstrapDiagram({ modules: [ contextPadModule, initPadModule ] }));
 
 
-    function Provider(entries) {
-      this.getContextPadEntries = function(element) {
-        return entries || {};
-      };
+    class Provider {
+      constructor(entries) {
+        this.getContextPadEntries = function(element) {
+          return entries || {};
+        };
+      }
     }
 
 
@@ -142,7 +143,6 @@ describe('features/context-pad', function() {
       }));
 
     });
-
   });
 
 

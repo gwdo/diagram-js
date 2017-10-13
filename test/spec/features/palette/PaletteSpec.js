@@ -7,10 +7,12 @@ var paletteModule = require('../../../../lib/features/palette');
 var domQuery = require('min-dom/lib/query'),
     domClasses = require('min-dom/lib/classes');
 
-function Provider(entries) {
-  this.getPaletteEntries = function() {
-    return entries || {};
-  };
+class Provider {
+  constructor(entries) {
+    this.getPaletteEntries = function() {
+      return entries || {};
+    };
+  }
 }
 
 

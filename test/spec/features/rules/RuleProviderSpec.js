@@ -10,8 +10,6 @@ var testRulesModule = require('./rules'),
 
 var RuleProvider = require('../../../../lib/features/rules/RuleProvider');
 
-var inherits = require('inherits');
-
 
 describe('features/rules - RuleProvider', function() {
 
@@ -40,11 +38,7 @@ describe('features/rules - RuleProvider', function() {
     it('should allow sub-classing', function() {
 
       // given
-      var CustomRules = function(eventBus) {
-        RuleProvider.call(this, eventBus);
-      };
-
-      inherits(CustomRules, RuleProvider);
+      class CustomRules extends RuleProvider { }
 
       // when
       var customRules = new CustomRules(null);
@@ -57,15 +51,11 @@ describe('features/rules - RuleProvider', function() {
     it('should initialize rule via RuleProvider#init', function() {
 
       // given
-      var CustomRules = function(eventBus) {
-        RuleProvider.call(this, eventBus);
-      };
-
-      inherits(CustomRules, RuleProvider);
-
-      CustomRules.prototype.init = function() {
-        this._initialized = true;
-      };
+      class CustomRules extends RuleProvider {
+        init() {
+          this._initialized = true;
+        }
+      }
 
 
       // when

@@ -4,8 +4,6 @@ require('../../TestHelper');
 
 /* global bootstrapDiagram, inject */
 
-var inherits = require('inherits');
-
 var cmdModule = require('../../../lib/command');
 
 var CommandInterceptor = require('../../../lib/command/CommandInterceptor');
@@ -13,46 +11,42 @@ var CommandInterceptor = require('../../../lib/command/CommandInterceptor');
 
 // example commands
 
-function TracableCommand() {
-  this.execute = function(ctx) { };
-  this.revert = function(ctx) { };
+class TracableCommand {
+
+  execute(ctx) { }
+
+  revert(ctx) { }
+
 }
 
-function SimpleCommand() {
-  TracableCommand.call(this);
+class SimpleCommand extends TracableCommand { }
+
+class ComplexCommand extends TracableCommand {
+
+  constructor(commandStack) {
+    super();
+
+    this.preExecute = function(ctx) {
+      commandStack.execute('pre-command', { element: ctx.element });
+    };
+
+    this.postExecute = function(ctx) {
+      commandStack.execute('post-command', { element: ctx.element });
+    };
+  }
+
 }
 
-function ComplexCommand(commandStack) {
-  TracableCommand.call(this);
+class PreCommand extends TracableCommand { }
 
-  this.preExecute = function(ctx) {
-    commandStack.execute('pre-command', { element: ctx.element });
-  };
-
-  this.postExecute = function(ctx) {
-    commandStack.execute('post-command', { element: ctx.element });
-  };
-}
-
-function PreCommand() {
-  TracableCommand.call(this);
-}
-
-function PostCommand() {
-  TracableCommand.call(this);
-}
-
+class PostCommand extends TracableCommand { }
 
 /**
  * A command interceptor used for testing
  */
-function TestInterceptor(eventBus) {
-  CommandInterceptor.call(this, eventBus);
-}
+class TestInterceptor extends CommandInterceptor { }
 
 TestInterceptor.$inject = [ 'eventBus' ];
-
-inherits(TestInterceptor, CommandInterceptor);
 
 
 describe('command/CommandInterceptor', function() {
@@ -493,24 +487,27 @@ describe('command/CommandInterceptor', function() {
 
 
   describe('context', function() {
+    class Dog {
+      constructor() {
+        this.barks = [];
+      }
 
-    function Dog() {
-      this.barks = [];
+      bark() {
+        this.barks.push('WOOF WOOF');
+      }
     }
-
-    Dog.prototype.bark = function() {
-      this.barks.push('WOOF WOOF');
-    };
 
     beforeEach(inject(function(commandStack) {
       commandStack.registerHandler('bark', ComplexCommand);
     }));
 
+
     it('should pass context -> WITHOUT unwrap', inject(function(commandStack, eventBus) {
-      var interceptor = new TestInterceptor(eventBus);
 
       // given
-      Dog.prototype.bindListener = function() {
+      var interceptor = new TestInterceptor(eventBus);
+
+      Dog.prototype.bindListener= function() {
         interceptor.execute('bark', function(event) {
           return this.bark();
         }, this);
@@ -529,14 +526,16 @@ describe('command/CommandInterceptor', function() {
 
 
     it('should pass context -> WITH unwrap', inject(function(commandStack, eventBus) {
-      var interceptor = new TestInterceptor(eventBus);
 
       // given
+      var interceptor = new TestInterceptor(eventBus);
+
       Dog.prototype.bindListener = function() {
         interceptor.execute('bark', function(event) {
           return this.bark();
         }, true, this);
       };
+
 
       var bobby = new Dog();
 

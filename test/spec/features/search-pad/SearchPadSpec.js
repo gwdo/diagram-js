@@ -27,7 +27,6 @@ describe('features/searchPad', function() {
   var input_node;
 
   beforeEach(inject(function(searchPad, eventBus, canvas) {
-
     canvas.setRootElement({ id: 'FOO' });
 
     elements = {
@@ -40,58 +39,60 @@ describe('features/searchPad', function() {
       }
     };
 
-    function SearchProvider() {
+    class SearchProvider {
+      constructor() {
 
-      this.setup = function(pattern, results) {
-        this._pattern = pattern;
-        this._results = results;
-      };
+        this.setup = function(pattern, results) {
+          this._pattern = pattern;
+          this._results = results;
+        };
 
-      this.find = function(pattern) {
-        if (pattern === this._pattern) {
-          return this._results;
-        }
+        this.find = function(pattern) {
+          if (pattern === this._pattern) {
+            return this._results;
+          }
 
-        if (pattern === 'one') {
-          return [{
-            primaryTokens: [
-              { normal: 'one' }
-            ],
-            secondaryTokens: [
-              { normal: 'some_' },
-              { matched: 'DataStore' },
-              { normal: '_123456_id' }
-            ],
-            element: elements.one.a
-          }];
-        }
+          if (pattern === 'one') {
+            return [{
+              primaryTokens: [
+                { normal: 'one' }
+              ],
+              secondaryTokens: [
+                { normal: 'some_' },
+                { matched: 'DataStore' },
+                { normal: '_123456_id' }
+              ],
+              element: elements.one.a
+            }];
+          }
 
-        if (pattern === 'two') {
-          return [{
-            primaryTokens: [
-              { normal: 'one' }
-            ],
-            secondaryTokens: [
-              { normal: 'some_' },
-              { matched: 'DataStore' },
-              { normal: '_123456_id' }
-            ],
-            element: elements.two.a
-          },{
-            primaryTokens: [
-              { normal: 'two' }
-            ],
-            secondaryTokens: [
-              { normal: 'some_' },
-              { matched: 'DataStore' },
-              { normal: '_123456_id' }
-            ],
-            element: elements.two.b
-          }];
-        }
+          if (pattern === 'two') {
+            return [{
+              primaryTokens: [
+                { normal: 'one' }
+              ],
+              secondaryTokens: [
+                { normal: 'some_' },
+                { matched: 'DataStore' },
+                { normal: '_123456_id' }
+              ],
+              element: elements.two.a
+            },{
+              primaryTokens: [
+                { normal: 'two' }
+              ],
+              secondaryTokens: [
+                { normal: 'some_' },
+                { matched: 'DataStore' },
+                { normal: '_123456_id' }
+              ],
+              element: elements.two.b
+            }];
+          }
 
-        return [];
-      };
+          return [];
+        };
+      }
     }
 
     searchProvider = new SearchProvider();

@@ -1,31 +1,24 @@
 'use strict';
 
-var inherits = require('inherits');
-
 var RuleProvider = require('../../../../../lib/features/rules/RuleProvider');
 
-function ConnectRules(eventBus) {
-  RuleProvider.call(this, eventBus);
+class ConnectRules extends RuleProvider {
+
+  init() {
+
+    this.addRule('connection.create', function(context) {
+      var source = context.source,
+          target = context.target;
+
+      if (source && target && source.parent === target.parent) {
+        return { type: 'test:Connection' };
+      }
+
+      return false;
+    });
+  }
 }
 
 ConnectRules.$inject = ['eventBus'];
 
-inherits(ConnectRules, RuleProvider);
-
 module.exports = ConnectRules;
-
-
-
-ConnectRules.prototype.init = function() {
-
-  this.addRule('connection.create', function(context) {
-    var source = context.source,
-        target = context.target;
-
-    if (source && target && source.parent === target.parent) {
-      return { type: 'test:Connection' };
-    }
-
-    return false;
-  });
-};

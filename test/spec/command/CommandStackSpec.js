@@ -8,40 +8,59 @@ var cmdModule = require('../../../lib/command');
 
 // example commands
 
-function TracableCommand(id) {
+class TracableCommand {
 
-  this.execute = function(ctx) {
-    ctx.element.trace.push(id);
-  };
+  constructor(id) {
 
-  this.revert = function(ctx) {
-    expect(ctx.element.trace.pop()).to.equal(id);
-  };
+    this.execute = function(ctx) {
+      ctx.element.trace.push(id);
+    };
+
+    this.revert = function(ctx) {
+      expect(ctx.element.trace.pop()).to.equal(id);
+    };
+  }
 }
 
-function SimpleCommand() {
-  TracableCommand.call(this, 'simple-command');
+class SimpleCommand extends TracableCommand {
+
+  constructor() {
+    super('simple-command');
+  }
+
 }
 
-function ComplexCommand(commandStack) {
+class ComplexCommand extends TracableCommand {
 
-  TracableCommand.call(this, 'complex-command');
+  constructor(commandStack) {
+    super('complex-command');
 
-  this.preExecute = function(ctx) {
-    commandStack.execute('pre-command', { element: ctx.element });
-  };
+    this._commandStack = commandStack;
+  }
 
-  this.postExecute = function(ctx) {
-    commandStack.execute('post-command', { element: ctx.element });
-  };
+  preExecute(ctx) {
+    this._commandStack.execute('pre-command', { element: ctx.element });
+  }
+
+  postExecute(ctx) {
+    this._commandStack.execute('post-command', { element: ctx.element });
+  }
 }
 
-function PreCommand() {
-  TracableCommand.call(this, 'pre-command');
+class PreCommand extends TracableCommand {
+
+  constructor() {
+    super('pre-command');
+  }
+
 }
 
-function PostCommand() {
-  TracableCommand.call(this, 'post-command');
+class PostCommand extends TracableCommand {
+
+  constructor() {
+    super('post-command');
+  }
+
 }
 
 
@@ -576,18 +595,19 @@ describe('command/CommandStack', function() {
 
 
   describe('missing handler #execute / #revert', function() {
+    class JustPrePostCommand {
+      constructor() {
 
-    function JustPrePostCommand() {
+        var id = 'just-pre-post-command';
 
-      var id = 'just-pre-post-command';
+        this.preExecute = function(ctx) {
+          ctx.element.trace.push(id + '-pre-execute');
+        };
 
-      this.preExecute = function(ctx) {
-        ctx.element.trace.push(id + '-pre-execute');
-      };
-
-      this.postExecute = function(ctx) {
-        ctx.element.trace.push(id + '-post-execute');
-      };
+        this.postExecute = function(ctx) {
+          ctx.element.trace.push(id + '-post-execute');
+        };
+      }
     }
 
 
@@ -623,7 +643,6 @@ describe('command/CommandStack', function() {
         commandStack.undo();
       }).to.not.throw;
     }));
-
   });
 
 

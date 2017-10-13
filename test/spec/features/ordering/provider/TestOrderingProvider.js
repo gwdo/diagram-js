@@ -1,9 +1,6 @@
 'use strict';
 
-var inherits = require('inherits');
-
 var OrderingProvider = require('../../../../../lib/features/ordering/OrderingProvider');
-
 
 var findIndex = require('lodash/array/findIndex');
 
@@ -14,12 +11,13 @@ var findIndex = require('lodash/array/findIndex');
  * (1) elements are ordered by a {level} property
  * (2) elements with {alwaysTopLevel} are always added to the root
  */
-function TestOrderingProvider(eventBus) {
+class TestOrderingProvider extends OrderingProvider {
+  constructor(eventBus) {
+    super(eventBus);
+  }
 
-  OrderingProvider.call(this, eventBus);
 
-
-  this.getOrdering = function(element, newParent) {
+  getOrdering(element, newParent) {
 
     if (element.alwaysTopLevel) {
       while (newParent.parent) {
@@ -45,9 +43,9 @@ function TestOrderingProvider(eventBus) {
       index: insertIndex,
       parent: newParent
     };
-  };
+  }
+
 }
 
-inherits(TestOrderingProvider, OrderingProvider);
 
 module.exports = TestOrderingProvider;

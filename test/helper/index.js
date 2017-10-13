@@ -167,28 +167,30 @@ module.exports.getDiagramJS = function() {
   return DIAGRAM_JS;
 };
 
-function DomEventTracker() {
+class DomEventTracker {
+  constructor() {
 
-  this.install = function() {
+    this.install = function() {
 
-    domEvent.__bind = domEvent.bind;
-    domEvent.__unbind = domEvent.__unbind || domEvent.unbind;
+      domEvent.__bind = domEvent.bind;
+      domEvent.__unbind = domEvent.__unbind || domEvent.unbind;
 
-    domEvent.bind = function(el, type, fn, capture) {
-      el.$$listenerCount = (el.$$listenerCount || 0) + 1;
-      return domEvent.__bind(el, type, fn, capture);
+      domEvent.bind = function(el, type, fn, capture) {
+        el.$$listenerCount = (el.$$listenerCount || 0) + 1;
+        return domEvent.__bind(el, type, fn, capture);
+      };
+
+      domEvent.unbind = function(el, type, fn, capture) {
+        el.$$listenerCount = (el.$$listenerCount || 0) -1;
+        return domEvent.__unbind(el, type, fn, capture);
+      };
     };
 
-    domEvent.unbind = function(el, type, fn, capture) {
-      el.$$listenerCount = (el.$$listenerCount || 0) -1;
-      return domEvent.__unbind(el, type, fn, capture);
+    this.uninstall = function() {
+      domEvent.bind = domEvent.__bind;
+      domEvent.unbind = domEvent.__unbind;
     };
-  };
-
-  this.uninstall = function() {
-    domEvent.bind = domEvent.__bind;
-    domEvent.unbind = domEvent.__unbind;
-  };
+  }
 }
 
 module.exports.DomMocking = new DomEventTracker();

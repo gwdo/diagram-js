@@ -8,10 +8,12 @@ var modelingModule = require('../../../../lib/features/modeling'),
     globalConnectModule = require('../../../../lib/features/global-connect');
 
 
-function Provider(allow) {
-  this.canStartConnect = function functionName() {
-    return allow;
-  };
+class Provider {
+  constructor(allow) {
+    this.canStartConnect = function functionName() {
+      return allow;
+    };
+  }
 }
 
 

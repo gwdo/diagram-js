@@ -10,34 +10,27 @@ var AutoResizeProvider = require('../../../../lib/features/auto-resize/AutoResiz
 
 var spy = sinon.spy;
 
-var inherits = require('inherits');
-
 
 /**
  * Custom auto-resize provider.
  *
  * @param {EventBus} eventBus
  */
-function CustomAutoResizeProvider(eventBus) {
-  AutoResizeProvider.call(this, eventBus);
+class CustomAutoResizeProvider extends AutoResizeProvider {
 
-  this.canResize = function(elements, target) {
+  canResize(elements, target) {
     return target.id !== 'root';
-  };
+  }
+
 }
 
-inherits(CustomAutoResizeProvider, AutoResizeProvider);
+class CustomAutoResize extends AutoResize {
 
-
-function CustomAutoResize(injector) {
-  injector.invoke(AutoResize, this);
-
-  this.getOffset = function(element) {
+  getOffset(element) {
     return { top: 10, bottom: 10, left: 10, right: 10 };
-  };
-}
+  }
 
-inherits(CustomAutoResize, AutoResize);
+}
 
 
 var customAutoResizeModule = {

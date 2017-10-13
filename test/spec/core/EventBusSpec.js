@@ -140,13 +140,16 @@ describe('core/EventBus', function() {
     });
 
     describe('passing context', function() {
-      function Dog() {}
+      class Dog {
+        constructor() {}
 
-      Dog.prototype.bark = function(msg) {
-        return msg || 'WOOF WOOF';
-      };
+        bark(msg) {
+          return msg || 'WOOF WOOF';
+        }
+      }
 
       it('should pass context to listener', function() {
+
         // given
         Dog.prototype.bindListener = function() {
 
@@ -168,6 +171,7 @@ describe('core/EventBus', function() {
 
 
       it('should pass context to listener and provide priority', function() {
+
         // given
         Dog.prototype.bindListener = function(priority, msg) {
           eventBus.on('bark', priority, function(event) {
@@ -190,6 +194,7 @@ describe('core/EventBus', function() {
 
 
       it('should pass context to listener and provide priority -> once', function() {
+
         // given
         Dog.prototype.bindListener = function(priority, msg) {
           eventBus.once('bark', priority, function(event) {
@@ -220,13 +225,14 @@ describe('core/EventBus', function() {
 
       it('should fire only once', function() {
         // given
-        Dog.prototype.barks = [];
 
         Dog.prototype.bindListener = function() {
           eventBus.once('bark', function(event) {
             this.barks.push('WOOF WOOF');
           }, this);
         };
+
+        Dog.prototype.barks = [];
 
         var bobby = new Dog();
 
