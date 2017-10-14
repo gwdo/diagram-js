@@ -7,7 +7,6 @@ import ConnectionMatchers from './matchers/ConnectionMatchers';
 
 export * from './helper';
 
-
 import fs from 'fs';
 
 insertCSS('diagram-js.css', fs.readFileSync(__dirname + '/../assets/diagram-js.css', 'utf8'));

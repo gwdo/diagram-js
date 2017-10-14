@@ -5,7 +5,7 @@ import '../../../TestHelper';
 /* global bootstrapDiagram, inject */
 
 
-import find from 'lodash/collection/find';
+import find from 'lodash/find';
 
 import modelingModule from '../../../../lib/features/modeling';
 

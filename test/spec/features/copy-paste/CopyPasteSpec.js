@@ -4,7 +4,7 @@ import '../../../TestHelper';
 
 /* global bootstrapDiagram, inject, sinon */
 
-import forEach from 'lodash/collection/forEach';
+import forEach from 'lodash/forEach';
 
 import copyPasteModule from '../../../../lib/features/copy-paste';
 import selectionModule from '../../../../lib/features/selection';

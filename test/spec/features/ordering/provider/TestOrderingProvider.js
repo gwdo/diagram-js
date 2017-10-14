@@ -2,7 +2,7 @@
 
 import OrderingProvider from '../../../../../lib/features/ordering/OrderingProvider';
 
-import findIndex from 'lodash/array/findIndex';
+import findIndex from 'lodash/findIndex';
 
 
 /**

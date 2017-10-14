@@ -4,7 +4,7 @@ import '../../TestHelper';
 
 /* global bootstrapDiagram, inject */
 
-import keys from 'lodash/object/keys';
+import keys from 'lodash/keys';
 
 import {
   getEnclosedElements

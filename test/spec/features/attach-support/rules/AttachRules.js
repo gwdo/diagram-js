@@ -2,7 +2,7 @@
 
 import RuleProvider from '../../../../../lib/features/rules/RuleProvider';
 
-import forEach from 'lodash/collection/forEach';
+import forEach from 'lodash/forEach';
 
 
 export default class MoveRules extends RuleProvider {

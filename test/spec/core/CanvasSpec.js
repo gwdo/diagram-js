@@ -1,10 +1,8 @@
 'use strict';
 
-require('../../TestHelper');
-
 /* global bootstrapDiagram, inject, sinon */
 
-import merge from 'lodash/object/merge';
+import merge from 'lodash/merge';
 import TestContainer from 'mocha-test-container-support';
 
 import domQuery from 'min-dom/lib/query';
@@ -829,7 +827,7 @@ describe('Canvas', function() {
 
       // but when...
       // letting the viewbox changed timeout of 300ms kick in
-      clock.tick(300);
+      clock.tick(1000);
 
       // then
       expect(changedListener).to.have.been.called;

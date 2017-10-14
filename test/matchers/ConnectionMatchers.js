@@ -1,6 +1,6 @@
 'use strict';
 
-import pick from 'lodash/object/pick';
+import pick from 'lodash/pick';
 
 var POSITION_ATTRS = [ 'x', 'y' ];
 

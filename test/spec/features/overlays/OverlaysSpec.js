@@ -2,9 +2,9 @@
 
 /* global bootstrapDiagram, inject */
 
-import forEach from 'lodash/collection/forEach';
-import assign from 'lodash/object/assign';
-import every from 'lodash/collection/every';
+import forEach from 'lodash/forEach';
+import assign from 'lodash/assign';
+import every from 'lodash/every';
 import domify from 'min-dom/lib/domify';
 
 import overlayModule from '../../../../lib/features/overlays';

@@ -1,8 +1,8 @@
 'use strict';
 
-import assign from 'lodash/object/assign';
+import assign from 'lodash/assign';
 
-import pick from 'lodash/object/pick';
+import pick from 'lodash/pick';
 
 import svgAppend from 'tiny-svg/lib/append';
 import svgAttr from 'tiny-svg/lib/attr';

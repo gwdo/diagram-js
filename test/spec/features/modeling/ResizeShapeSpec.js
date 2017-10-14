@@ -2,7 +2,7 @@
 
 /* global bootstrapDiagram, inject */
 
-import pick from 'lodash/object/pick';
+import pick from 'lodash/pick';
 
 import { resizeBounds } from '../../../../lib/features/resize/ResizeUtil';
 import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';

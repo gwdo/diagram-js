@@ -2,7 +2,7 @@
 
 /* global bootstrapDiagram, inject */
 
-import forEach from 'lodash/collection/forEach';
+import forEach from 'lodash/forEach';
 
 
 import touchInteractionModule from '../../../../lib/features/touch';

@@ -3,7 +3,7 @@
 /* global bootstrapDiagram, inject */
 
 
-import pick from 'lodash/object/pick';
+import pick from 'lodash/pick';
 
 import modelingModule from '../../../../lib/features/modeling';
 
