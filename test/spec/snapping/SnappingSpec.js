@@ -2,7 +2,7 @@
 
 /* global bootstrapDiagram, inject */
 
-import assign from 'lodash/assign';
+import assign from 'lodash-es/assign';
 
 import snappingModule from '../../../lib/features/snapping';
 import modelingModule from '../../../lib/features/modeling';

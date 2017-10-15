@@ -6,7 +6,7 @@ import { inject } from '../../../TestHelper';
 
 import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 
-import pick from 'lodash/pick';
+import pick from 'lodash-es/pick';
 
 import resizeModule from '../../../../lib/features/resize';
 import modelingModule from '../../../../lib/features/modeling';

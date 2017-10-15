@@ -11,7 +11,7 @@ import modelingModule from '../../../../lib/features/modeling';
 import editorActionsModule from '../../../../lib/features/editor-actions';
 import keyboardModule from '../../../../lib/features/keyboard';
 
-import { createKeyEvent } from '../../../util/KeyEvents'
+import { createKeyEvent } from '../../../util/KeyEvents';
 
 
 describe('features/keyboard', function() {

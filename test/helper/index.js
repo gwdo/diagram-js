@@ -1,9 +1,9 @@
 'use strict';
 
-import unique from 'lodash/uniq';
-import isFunction from 'lodash/isFunction';
-import merge from 'lodash/merge';
-import forEach from 'lodash/forEach';
+import unique from 'lodash-es/uniq';
+import isFunction from 'lodash-es/isFunction';
+import merge from 'lodash-es/merge';
+import forEach from 'lodash-es/forEach';
 
 import TestContainer from 'mocha-test-container-support';
 

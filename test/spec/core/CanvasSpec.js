@@ -2,7 +2,7 @@
 
 /* global bootstrapDiagram, inject, sinon */
 
-import merge from 'lodash/merge';
+import merge from 'lodash-es/merge';
 import TestContainer from 'mocha-test-container-support';
 
 import domQuery from 'min-dom/lib/query';
@@ -805,7 +805,7 @@ describe('Canvas', function() {
 
 
     // NOTE(nikku): this relies on fake timers properly set up
-    // to work with lodash (see TestHelper)
+    // to work with lodash-es (see TestHelper)
 
     it('should debounce viewbox update', inject(function(eventBus, canvas) {
 

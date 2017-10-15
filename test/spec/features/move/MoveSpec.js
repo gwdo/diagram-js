@@ -2,8 +2,8 @@
 
 /* global bootstrapDiagram, inject */
 
-import assign from 'lodash/assign';
-import pick from 'lodash/pick';
+import assign from 'lodash-es/assign';
+import pick from 'lodash-es/pick';
 
 import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 

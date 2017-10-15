@@ -3,9 +3,9 @@
 
 /* global bootstrapDiagram, inject */
 
-import forEach from 'lodash/forEach';
-import assign from 'lodash/assign';
-import every from 'lodash/every';
+import forEach from 'lodash-es/forEach';
+import assign from 'lodash-es/assign';
+import every from 'lodash-es/every';
 import domify from 'min-dom/lib/domify';
 
 import tooltipsModule from '../../../../lib/features/tooltips';

@@ -4,7 +4,7 @@ import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 
 /* global bootstrapDiagram, inject */
 
-import pick from 'lodash/pick';
+import pick from 'lodash-es/pick';
 
 import attachSupportModule from '../../../../lib/features/attach-support';
 import modelingModule from '../../../../lib/features/modeling';

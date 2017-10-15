@@ -1,6 +1,6 @@
 'use strict';
 
-import pick from 'lodash/pick';
+import pick from 'lodash-es/pick';
 
 var BOUNDS_ATTRS = [ 'x', 'y', 'width', 'height' ],
     POSITION_ATTRS = [ 'x', 'y' ],
@@ -163,4 +163,4 @@ export default function(chai, utils) {
     );
   });
 
-};
+}

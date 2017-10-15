@@ -1,6 +1,6 @@
 'use strict';
 
-import assign from 'lodash/assign';
+import assign from 'lodash-es/assign';
 
 import { Event as InternalEvent } from '../../lib/core/EventBus';
 

@@ -6,8 +6,8 @@ import '../../../TestHelper';
 
 import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 
-import assign from 'lodash/assign';
-import omit from 'lodash/omit';
+import assign from 'lodash-es/assign';
+import omit from 'lodash-es/omit';
 
 import dragModule from '../../../../lib/features/dragging';
 
