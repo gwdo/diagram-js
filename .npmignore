@@ -1,0 +1,7 @@
+.github/
+test/
+example/
+.babelrc
+.eslintrc
+.travis.yml
+Gruntfile.js
