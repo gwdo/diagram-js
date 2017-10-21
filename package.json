@@ -22,6 +22,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-preset-env": "^1.6.0",
     "babelify": "^7.3.0",
     "brfs-babel": "^1.0.0",
@@ -50,9 +51,9 @@
     "mocha": "^4.0.1",
     "mocha-test-container-support": "~0.1.0",
     "phantomjs-prebuilt": "^2.1.12",
+    "puppeteer": "^0.12.0",
     "sinon": "^4.0.1",
     "sinon-chai": "^2.14.0",
-    "puppeteer": "^0.12.0",
     "time-grunt": "^0.3.0",
     "watchify": "^3.7.0"
   },
