@@ -2,7 +2,7 @@
 
 import '../../../TestHelper';
 
-var canvasEvent = require('../../../util/MockEvents').createCanvasEvent;
+import { createCanvasEvent as canvasEvent } from '../../../util/MockEvents';
 
 /* global bootstrapDiagram, inject */
 

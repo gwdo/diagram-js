@@ -8,7 +8,9 @@ import autoResizeModule from '../../../../lib/features/auto-resize';
 import AutoResizeProvider from '../../../../lib/features/auto-resize/AutoResizeProvider';
 import AutoResize from '../../../../lib/features/auto-resize/AutoResize';
 
-var spy = sinon.spy;
+const {
+  spy
+} = sinon;
 
 
 /**

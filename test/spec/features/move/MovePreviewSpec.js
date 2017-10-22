@@ -16,14 +16,25 @@ import svgClasses from 'tiny-svg/lib/classes';
 
 describe('features/move - MovePreview', function() {
 
-  beforeEach(bootstrapDiagram({ modules: [ moveModule, attachSupportModule, rulesModule, modelingModule ] }));
+  beforeEach(bootstrapDiagram({
+    modules: [
+      moveModule,
+      attachSupportModule,
+      rulesModule,
+      modelingModule
+    ]
+  }));
 
   beforeEach(inject(function(canvas, dragging) {
     dragging.setOptions({ manual: true });
   }));
 
 
-  var rootShape, parentShape, childShape, childShape2, connection;
+  var rootShape,
+      parentShape,
+      childShape,
+      childShape2,
+      connection;
 
   beforeEach(inject(function(elementFactory, canvas) {
 

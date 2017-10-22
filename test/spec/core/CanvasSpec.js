@@ -10,16 +10,6 @@ import domQuery from 'min-dom/lib/query';
 import svgAttr from 'tiny-svg/lib/attr';
 import svgClasses from 'tiny-svg/lib/classes';
 
-function expectLayersOrder(layersParent, expected) {
-  var layers = layersParent.childNodes;
-
-  for (var i = 0; i < layers.length; ++i) {
-    var hasClass = svgClasses(layers[i]).has('layer-' + expected[i]);
-
-    expect(hasClass).to.be.true;
-  }
-}
-
 
 describe('Canvas', function() {
 
@@ -1747,3 +1737,17 @@ describe('Canvas', function() {
   });
 
 });
+
+
+
+////////// helpers ///////////////////////////
+
+function expectLayersOrder(layersParent, expected) {
+  var layers = layersParent.childNodes;
+
+  for (var i = 0; i < layers.length; ++i) {
+    var hasClass = svgClasses(layers[i]).has('layer-' + expected[i]);
+
+    expect(hasClass).to.be.true;
+  }
+}

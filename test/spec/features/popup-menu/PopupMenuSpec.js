@@ -11,7 +11,6 @@ import { createEvent as globalEvent } from '../../../util/MockEvents';
 
 import popupMenuModule from '../../../../lib/features/popup-menu';
 import modelingModule from '../../../../lib/features/modeling';
-import commandStack from '../../../../lib/command';
 
 
 function queryEntry(popupMenu, id) {
@@ -31,9 +30,16 @@ var menuProvider = {
   }
 };
 
+
 describe('features/popup', function() {
 
-  beforeEach(bootstrapDiagram({ modules: [ popupMenuModule, commandStack, modelingModule ] }));
+  beforeEach(bootstrapDiagram({
+    modules: [
+      popupMenuModule,
+      modelingModule
+    ]
+  }));
+
 
   describe('bootstrap', function() {
 
@@ -46,6 +52,7 @@ describe('features/popup', function() {
 
 
   describe('#registerProvider', function() {
+
     it('should register provider', inject(function(popupMenu) {
 
       // given
@@ -58,9 +65,12 @@ describe('features/popup', function() {
       expect(popupMenu._providers.provider).to.exist;
 
     }));
+
   });
 
+
   describe('#create', function() {
+
     it('should create menu for specific element', inject(function(popupMenu) {
 
       // when
@@ -94,6 +104,7 @@ describe('features/popup', function() {
     }));
 
   });
+
 
   describe('#isEmpty', function() {
 
@@ -138,7 +149,9 @@ describe('features/popup', function() {
       // then
       expect(popupMenu.isEmpty()).to.be.false;
     }));
+
   });
+
 
   describe('#open', function() {
 
@@ -211,6 +224,7 @@ describe('features/popup', function() {
 
   });
 
+
   describe('#close', function() {
 
     beforeEach(inject(function(popupMenu) {
@@ -280,6 +294,7 @@ describe('features/popup', function() {
 
   });
 
+
   describe('#trigger', function() {
 
     it('should trigger the right action handler', inject(function(popupMenu) {
@@ -321,6 +336,7 @@ describe('features/popup', function() {
 
   });
 
+
   describe('integration', function() {
 
     describe('events', function() {
@@ -361,6 +377,7 @@ describe('features/popup', function() {
     });
 
   });
+
 
   describe('menu styling', function() {
 
@@ -475,6 +492,7 @@ describe('features/popup', function() {
     }));
 
   });
+
 
   describe('singleton handling', function() {
 
@@ -714,6 +732,7 @@ describe('features/popup', function() {
     }));
 
   });
+
 
   // different browsers, different outcomes
   describe('position', function() {

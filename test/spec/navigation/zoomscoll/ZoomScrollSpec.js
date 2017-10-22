@@ -60,6 +60,7 @@ describe('navigation/zoomscroll', function() {
       expect(canvas.zoom()).to.equal(1);
     }));
 
+
     it('should only zoom in once threshold is reached', inject(function(zoomScroll, canvas) {
 
       var zoomSpy = sinon.spy(canvas, 'zoom');

@@ -13,7 +13,13 @@ import connectModule from '../../../../lib/features/connect';
 
 describe('features/connect', function() {
 
-  beforeEach(bootstrapDiagram({ modules: [ modelingModule, connectModule, rulesModule ] }));
+  beforeEach(bootstrapDiagram({
+    modules: [
+      modelingModule,
+      connectModule,
+      rulesModule
+    ]
+  }));
 
   beforeEach(inject(function(canvas, dragging) {
     dragging.setOptions({ manual: true });

@@ -66,7 +66,9 @@ class PostCommand extends TracableCommand {
 
 describe('command/CommandStack', function() {
 
-  beforeEach(bootstrapDiagram({ modules: [ cmdModule ] }));
+  beforeEach(bootstrapDiagram({
+    modules: [ cmdModule ]
+  }));
 
 
   describe('#register', function() {
@@ -682,7 +684,7 @@ describe('command/CommandStack', function() {
       commandStack.registerHandler('outer-command', OuterHandler);
       commandStack.registerHandler('inner-command', InnerHandler);
 
-      var s1 = {}, s2 = {}, context = { s1: s1, s2: s2 };
+      var s1 = { id: '1' }, s2 = { id: '2' }, context = { s1: s1, s2: s2 };
 
       var events = [];
 
