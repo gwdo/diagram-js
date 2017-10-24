@@ -3,7 +3,8 @@
 import {
   create as createModel,
   Shape,
-  Connection
+  Connection,
+  Label
 } from '../../../lib/model';
 
 
@@ -24,7 +25,7 @@ describe('model', function() {
     // then
     expect(connection.waypoints).to.equal(waypoints);
 
-    expect(connection instanceof Connection).to.equal(true);
+    expect(connection instanceof Connection).to.be.true;
   });
 
 
@@ -47,7 +48,31 @@ describe('model', function() {
     expect(shape.width).to.equal(width);
     expect(shape.height).to.equal(height);
 
-    expect(shape instanceof Shape).to.equal(true);
+    expect(shape instanceof Shape).to.be.true;
+  });
+
+
+  it('should instantiate Label', function() {
+
+    // given
+    var x = 10, y = 20, width = 100, height = 100;
+
+    // when
+    var label = createModel('label', {
+      x: x,
+      y: y,
+      width: width,
+      height: height
+    });
+
+    // then
+    expect(label.x).to.equal(x);
+    expect(label.y).to.equal(y);
+    expect(label.width).to.equal(width);
+    expect(label.height).to.equal(height);
+
+    expect(label instanceof Shape).to.be.true;
+    expect(label instanceof Label).to.be.true;
   });
 
 
